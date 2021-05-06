@@ -11,12 +11,15 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
+	
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<!-- <resources mapping="/resources/**" location="/resources/" /> -->
 	<!-- 얘네는 dispatcherservlet에 보내지말고 바로실행하라 -->
 	<resources mapping="/img/**" location="/resources/img/"/>
 	<resources mapping="/css/**" location="/resources/css/"/>
+	<resources mapping="/js/**" location="/resources/js/"/>
+	<resources mapping="/scss/**" location="/resources/scss/"/>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

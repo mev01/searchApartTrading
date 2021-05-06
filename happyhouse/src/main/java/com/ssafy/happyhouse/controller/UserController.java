@@ -34,7 +34,6 @@ public class UserController {
 			MemberDto memberDto = userService.login(map);
 			if(memberDto != null) {
 				session.setAttribute("userinfo", memberDto);
-				
 				Cookie cookie = new Cookie("ssafy_id", memberDto.getUserid());
 				cookie.setPath("/");
 				if("saveok".equals(map.get("idsave"))) {
@@ -57,6 +56,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
+		System.out.println();
 		session.invalidate();
 		return "redirect:/";
 	}

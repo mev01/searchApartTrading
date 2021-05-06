@@ -35,6 +35,17 @@
 	rel="stylesheet" type="text/css">
 <!-- Custom styles for this template -->
 <link href="css/landing-page.min.css" rel="stylesheet">
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		 
+		$('#nav-meminfoBtn').focusin(function() {
+			$(location).attr("href", "${root}/user/");
+		});
+	});
+	
+</script>
 </head>
 <body>
 	<!-- Navigation -->
@@ -63,10 +74,8 @@
 						<strong>${userinfo.username}</strong>님 환영합니다.
 
 						<div class="btn-group">
-							<a class="btn btn-sm btn-primary navBtn" id="nav-logoutBtn"
-								href="${root}/main.do?act=logout"> <i
-								class="fa fa-unlock pr-2"></i>Logout
-							</a>
+							<a class="btn btn-sm btn-primary navBtn" id="nav-logoutBtn" href="${root}/user/logout"> 
+							<i class="fa fa-unlock pr-2"></i>Logout</a>
 						</div>
 						<div class="btn-group">
 							<a class="btn btn-sm btn-primary mr-2 navBtn" id="nav-meminfoBtn"

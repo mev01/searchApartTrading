@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="root" value="${pageContext.request.contextPath}" />
+<c:set var="root" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -63,7 +64,7 @@
 			</div>
 		</header>
 
-		<div class="container mt-4 mb-4" align="center">
+ 		<%-- <div class="container mt-4 mb-4" align="center">
 			<div class="col-3 dealRank">
 				<table class="table table-hover dealRankHigh">
 					<thead>
@@ -99,9 +100,9 @@
 						</c:if>
 					</tbody>
 				</table>
-			</div>
+			</div> --%>
 			<div id="map" class="col-8 defaultmap"></div>
-		</div>
+		</div> 
 
 		<!-- Testimonials -->
 		<section class="testimonials text-center bg-light">
@@ -155,8 +156,8 @@
 							<li class="list-inline-item">&sdot;</li>
 							<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
 						</ul>
-						<p class="text-muted small mb-4 mb-lg-0">&copy; 2021.04.02 이조순
-							윤소영 PairPJT.</p>
+						<p class="text-muted small mb-4 mb-lg-0">&copy; 2021.05.07 이조순
+							양동현 PairPJT.</p>
 					</div>
 					<div class="col-lg-6 h-100 text-center text-lg-right my-auto">
 						<ul class="list-inline mb-0">

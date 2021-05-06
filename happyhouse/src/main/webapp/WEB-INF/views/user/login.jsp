@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="root" value="${pageContext.request.contextPath}" />
+<c:set var="root" value="${pageContext.request.contextPath}"/>
 
 <c:if test="${cookie.ssafy_id.value ne null}">
 	<c:set var="saveid" value="${cookie.ssafy_id.value}" />
@@ -35,7 +35,7 @@
 		
 	}
 
-	function login() {
+	/* function login() {
 		if (document.getElementById("userid").value == "") {
 			alert("아이디 입력!!!");
 			return;
@@ -47,7 +47,7 @@
 			document.getElementById("loginform").submit();
 			//document.location.href = "${root}/main.do?act=mvjoin";
 		}
-	}
+	} */
 
 	function moveJoin() {
 		document.location.href = "${root}/main.do?act=mvjoin";
@@ -57,7 +57,24 @@
 		document.location.href = "${root}/main.do?act=mvsearchPW";
 	}
 		
-	
+	$(document).ready(function() {
+		$("#loginBtn").click(function() {
+			
+			if($("#userid").val() == "") {
+				alert("아이디 입력!!!");
+				return;
+			} else if($("#userpwd").val() == "") {
+				alert("비밀번호 입력!!!");
+				return;
+			} else {
+				$("#loginform").attr("action", "${root}/user/login").submit();
+			}
+		});
+		 
+		$('#mvRegisterBtn').focusin(function() {
+			$(location).attr("href", "${root}/");
+		});
+	});
 </script>
 </head>
 <body>
@@ -96,10 +113,10 @@
 							</label>
 						</div>
 						<div class="form-group" align="center">
-							<button type="button" class="btn btn-info"
-								onclick="javascript:login();">로그인</button>
-							<button type="button" class="btn btn-primary"
-								onclick="javascript:moveJoin();">회원가입</button>
+							<button type="button" class="btn btn-info" id="loginBtn"
+								>로그인</button>
+							<button type="button" class="btn btn-primary" id="mvRegisterBtn"
+								>회원가입</button>
 							<button type="button" class="btn btn-primary"
 								onclick="javascript:findPwd();">비밀번호찾기</button>
 						</div>
