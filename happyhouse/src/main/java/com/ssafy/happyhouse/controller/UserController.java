@@ -108,7 +108,7 @@ public class UserController {
 		memberDto.setUserid(memberDto2.getUserid());
 		
 		userService.userModify(memberDto);
-		return "index";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)

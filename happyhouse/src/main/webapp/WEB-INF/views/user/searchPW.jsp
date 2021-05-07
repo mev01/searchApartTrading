@@ -50,7 +50,6 @@ function moveJoin() {
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<!-- Masthead -->
 	<header class="masthead text-white text-center join_houseImg">
 		<div class="overlay"></div>
 		<div class="container">

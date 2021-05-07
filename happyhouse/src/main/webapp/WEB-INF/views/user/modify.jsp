@@ -45,7 +45,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jsp"%>
-	<!-- Masthead -->
+	
 	<header class="masthead text-white text-center houseImg">
 		<div class="overlay"></div>
 		<div class="container">
@@ -61,13 +61,24 @@
 				<h2 class="mt-4">회원정보변경</h2>
 				<form id="modifyform" method="post" action="">
 					<input type="hidden" class="form-control" id="userid" name="userid" value="${member.userid}">
+					
 					<div class="form-group" align="left">
 						<label for="password">비밀번호변경: </label>
 						 <input type="text" class="form-control" id="userpwd" name="userpwd" value="${member.userpwd}">
 					</div>
+					<div class="form-group" align="left">
+						<label for="email">이메일변경: </label>
+						 <input type="text" class="form-control" id="email" name="email" value="${member.email}">
+					</div>
+					
+					<div class="form-group" align="left">
+						<label for="address">주소 변경: </label>
+						 <input type="text" class="form-control" id="address" name="address" value="${member.address}">
+					</div>
 					<button type="button" class="btn btn-info" id="modifyBtn">수정</button>
 					<button type="button" class="btn btn-light" onclick="javascript:cancelModify();">취소</button>
 				</form>
+				<br>
 				<h2 class="mt-4">회원탈퇴</h2>
 				<form id="deleteForm" method="post" action="">
 					<input type="hidden" name="delete" id="delete" value="delete"> 
@@ -78,7 +89,7 @@
 		</div>		
 	</header>
 	
-	<section class="testimonials text-center bg-light" style="padding-top:80px">
+	<section class="testimonials text-center bg-light" style="padding-top:230px">
 			<div class="container">
 				<h2 class="mb-5">Happy House에서 제공하는 서비스는...</h2>
 				<div class="row">
