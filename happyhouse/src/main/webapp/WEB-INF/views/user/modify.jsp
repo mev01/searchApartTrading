@@ -43,6 +43,12 @@
 					$("#modifyform").attr("action", "${root}/user/modifypassword").submit();
 				}
 			});
+		  
+		  $("#deleteBtn").click(function() {
+				
+				$("#deleteForm").attr("action", "${root}/user/delete").submit();
+				
+			});
 		});
 	
 	function cancelModify() {
@@ -85,11 +91,11 @@
 						onclick="javascript:cancelModify();">취소</button>
 				</form>
 				<form id="deleteForm" method="post" action="">
-					<input type="hidden" name="act" id="act" value="deleteMem"> <input
+					<input type="hidden" name="delete" id="delete" value="delete"> <input
 						type="hidden" class="form-control" id="userid" name="userid"
 						value="${member.userid}">
 					<button type="button" class="btn btn-secondary"
-						onclick="javascript:deleteMem();">탈퇴</button>
+						id="deleteBtn">탈퇴</button>
 
 				</form>
 			</div>

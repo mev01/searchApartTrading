@@ -72,7 +72,7 @@ public class UserController {
 		System.out.println(memberDto.getUserid());
 		System.out.println(memberDto.getUserpwd());
 		userService.userRegister(memberDto);
-		return "user/join";
+		return "user/login";
 	}
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -88,13 +88,11 @@ public class UserController {
 	
 	@RequestMapping(value = "/searchPW", method = RequestMethod.GET)
 	public String searchPW() {
-		System.out.println("찾았당");
 		return "user/searchPW";
 	}
 	
 	@RequestMapping(value = "/searchPW", method = RequestMethod.POST)
 	public String searchPW(MemberDto memberDto, Model model, HttpSession session) {
-		System.out.println("와와");
 		MemberDto memberDto2=userService.userInfo(memberDto.getUserid());
 		session.setAttribute("pw", memberDto2.getUserpwd());
 		System.out.println(memberDto2.getUsername());
@@ -105,11 +103,19 @@ public class UserController {
 	@RequestMapping(value = "/modifypassword", method = RequestMethod.POST)
 	public String modifypassword(MemberDto memberDto, Model model, HttpSession session) {
 		MemberDto memberDto2 = (MemberDto) session.getAttribute("userinfo");
+		
 		memberDto.setUserid(memberDto2.getUserid());
-		System.out.println(memberDto2.getUserid());
-		System.out.println(memberDto.getUserpwd());
-
+		
 		userService.userModify(memberDto);
 		return "index";
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String delete(MemberDto memberDto, Model model, HttpSession session) {
+		MemberDto memberDto2 = (MemberDto) session.getAttribute("userinfo");
+		System.out.println(memberDto2.getUserid());
+		userService.userDelete(memberDto2.getUserid());
+		session.invalidate();
+		return "user/login";
 	}
 }
