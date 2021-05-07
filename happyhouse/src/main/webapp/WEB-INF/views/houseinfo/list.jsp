@@ -133,7 +133,7 @@
 					google.maps.event.addListener(marker, 'click', function() {
 						map.setCenter(this.getPosition());
 						map.setZoom(17);
-						var idx = i;
+						var idx = i; 
 						console.log(idx);
 						
 						$(".apart").each(function() {
