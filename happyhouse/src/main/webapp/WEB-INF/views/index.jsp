@@ -116,7 +116,7 @@
 		<!-- Testimonials -->
 		<section class="testimonials text-center bg-light">
 			<div class="container">
-				<h2 class="mb-5">Happy House에서 제공하는 서비스는...</h2>
+				<h2 class="mb-5">Happy House에서 제공 하는 서비스는...</h2>
 				<div class="row">
 					<div class="col-lg-4">
 						<div class="testimonial-item mx-auto mb-5 mb-lg-0">
