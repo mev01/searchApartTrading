@@ -20,6 +20,7 @@ public class HomeController {
 	
 	@Autowired
 	private ApartService apartservice;
+	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
