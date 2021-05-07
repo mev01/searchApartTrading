@@ -31,7 +31,7 @@
 <script type="text/javascript">
 	var root = '<c:out value="${pageContext.request.contextPath}"/>';
 	$(document).ready(function() {
-		$('#select-city').change(function() {
+		 $('#select-city').change(function() {
 			var city = $('#select-city').val();
 			location.href = "${root}/apart/select/" + city;
 		});
@@ -40,7 +40,7 @@
 			var city = $('#select-city').val();
 			var gu = $('#select-gu').val();
 			location.href = "${root}/apart/select/" + city+ "/" + gu;
-		});
+		}); 
 		
 		Search = function () {
 			var city = $('#select-city').val();
@@ -102,56 +102,16 @@
 									value="검색하기">
 							</div> -->
 						</div>
-						<div class="">
+						<!-- <div class="">
 							<div class="option text-center mt-2 mb-2">
 								<a class="btn btn-lg btn-goto"
 									href="javascript:void(0);" onclick="Search();return false;"> 실거래가 지금 보기 👉 </a>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
 		</header>
-
- 		<%-- <div class="container mt-4 mb-4" align="center">
-			<div class="col-3 dealRank">
-				<table class="table table-hover dealRankHigh">
-					<thead>
-						<tr>
-							<th><h3>높은 매매가 TOP3</h3></th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:if test="${highrank.size() != 0}">
-							<c:forEach var="highrank" items="${highrank}">
-								<tr>
-									<td><i class="far fa-building"></i>${highrank.aptName}<br>
-										<i class="fas fa-comment-dollar"></i>${highrank.dealAmount}</td>
-								</tr>
-							</c:forEach>
-						</c:if>
-					</tbody>
-				</table>
-				<table class="table table-hover dealRankLow">
-					<thead>
-						<tr>
-							<th><h3>낮은 매매가 TOP3</h3></th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:if test="${lowrank.size() != 0}">
-							<c:forEach var="lowrank" items="${lowrank}">
-								<tr>
-									<td><i class="far fa-building"></i>${lowrank.aptName}<br>
-										<i class="fas fa-comment-dollar"></i>${lowrank.dealAmount}</td>
-								</tr>
-							</c:forEach>
-						</c:if>
-					</tbody>
-				</table>
-			</div> --%>
-			<%--<div id="map" class="col-8 defaultmap" align="center"></div>--%>
-		</div> 
 
 		<!-- Testimonials -->
 		<section class="testimonials text-center bg-light">
