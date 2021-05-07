@@ -19,10 +19,10 @@ $(document).ready(function() {
 	$("#searchBtn").click(function() {
 		
 		if($("#username").val() == "") {
-			alert("이름 입력!!!");
+			alert("이름 입력");
 			return;
 		} else if($("#userid").val() == "") {
-			alert("아이디 입력!!!");
+			alert("아이디 입력");
 			return;
 		} else {
 			document.getElementById("memberform").action = "${root}/main.do?act=searchPW";
