@@ -22,17 +22,29 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="./css/happyhouse.css" />
 <script type="text/javascript">
-	function writeArticle() {
+	/* function writeArticle() {
 		if (document.getElementById("password").value == "") {
 			alert("바뀐비밀번호입력");
 			return;
 		} else {
 
-			document.getElementById("writeform").action = "${root}/main.do";
+			document.getElementById("writeform").action = "${root}/user/modifypassword";
+		
 			document.getElementById("writeform").submit();
 		}
-	}
-
+	} */
+	
+	$(document).ready(function() {
+		  $("#modifyBtn").click(function() {
+				if($("#password").val() == "") {
+					alert("바뀐 비밀번호입력");
+					return;
+				} else {
+					$("#modifyform").attr("action", "${root}/user/modifypassword").submit();
+				}
+			});
+		});
+	
 	function cancelModify() {
 		history.back();
 	}
@@ -59,21 +71,18 @@
 		<div class="container" align="center">
 			<div class="col-lg-6 modifyBoxBg" align="center">
 				<h2 class="mt-4">비밀번호변경</h2>
-				<form id="writeform" method="post" action="">
-					<input type="hidden" name="act" id="act" value="modify"> 
+				<form id="modifyform" method="post" action="">
+					<!-- <input type="hidden" name="act" id="act" value="modify">  -->
 					<input type="hidden" class="form-control" id="userid" name="userid" value="${member.userid}">
 					<div class="form-group" align="left">
 						<label for="password">비밀번호변경: </label> <input type="text"
-							class="form-control" id="password" name="password"
+							class="form-control" id="userpwd" name="userpwd"
 							value="${member.userpwd}">
-
-
 					</div>
 					<button type="button" class="btn btn-info"
-						onclick="javascript:writeArticle();">수정</button>
+						id="modifyBtn">수정</button>
 					<button type="button" class="btn btn-light"
 						onclick="javascript:cancelModify();">취소</button>
-
 				</form>
 				<form id="deleteForm" method="post" action="">
 					<input type="hidden" name="act" id="act" value="deleteMem"> <input
@@ -84,7 +93,7 @@
 
 				</form>
 			</div>
-		</div>
+		</div>		
 	</header>
 </body>
 	</html>

@@ -29,25 +29,11 @@
 
 <script type="text/javascript">
 
-	function searchPW() {
+	/* function searchPW() {
 	
 		document.location.href = "${root}/main.do?act=searchPW";
 		
 	}
-
-	/* function login() {
-		if (document.getElementById("userid").value == "") {
-			alert("아이디 입력!!!");
-			return;
-		} else if (document.getElementById("userpwd").value == "") {
-			alert("비밀번호 입력!!!");
-			return;
-		} else {
-			document.getElementById("loginform").action = "${root}/main.do";
-			document.getElementById("loginform").submit();
-			//document.location.href = "${root}/main.do?act=mvjoin";
-		}
-	} */
 
 	function moveJoin() {
 		document.location.href = "${root}/main.do?act=mvjoin";
@@ -55,7 +41,7 @@
 
 	function findPwd() {
 		document.location.href = "${root}/main.do?act=mvsearchPW";
-	}
+	} */
 		
 	$(document).ready(function() {
 		$("#loginBtn").click(function() {
@@ -70,10 +56,12 @@
 				$("#loginform").attr("action", "${root}/user/login").submit();
 			}
 		});
-		 
-		$('#mvRegisterBtn').focusin(function() {
-			$(location).attr("href", "${root}/");
-		});
+		
+		
+		
+	 	$('#mvRegisterBtn').click(function() {
+			$(location).attr("href", "${root}/user/join");
+		}); 
 	});
 </script>
 </head>
@@ -115,8 +103,7 @@
 						<div class="form-group" align="center">
 							<button type="button" class="btn btn-info" id="loginBtn"
 								>로그인</button>
-							<button type="button" class="btn btn-primary" id="mvRegisterBtn"
-								>회원가입</button>
+							<button type="button" class="btn btn-primary" id="mvRegisterBtn">회원가입</button>
 							<button type="button" class="btn btn-primary"
 								onclick="javascript:findPwd();">비밀번호찾기</button>
 						</div>

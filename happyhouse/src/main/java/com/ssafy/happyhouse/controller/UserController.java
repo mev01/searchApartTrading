@@ -56,13 +56,45 @@ public class UserController {
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
-		System.out.println();
+		
 		session.invalidate();
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public String join(HttpSession session) {
+		
+		return "user/join";
+	}
+	
+	@RequestMapping(value = "/join", method = RequestMethod.POST)
+	public String join(MemberDto memberDto, Model model, HttpSession session) {
+		System.out.println(memberDto.getUserid());
+		System.out.println(memberDto.getUserpwd());
+		userService.userRegister(memberDto);
+		return "user/join";
 	}
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list() {
 		return "user/list";
+	}
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public String modify() {
+		return "user/modify";
+	}
+	
+	
+	@RequestMapping(value = "/modifypassword", method = RequestMethod.POST)
+	public String modifypassword(MemberDto memberDto, Model model, HttpSession session) {
+		MemberDto memberDto2 = (MemberDto) session.getAttribute("userinfo");
+		System.out.println("무야호");
+		memberDto.setUserid(memberDto2.getUserid());
+		System.out.println(memberDto2.getUserid());
+		System.out.println(memberDto.getUserpwd());
+
+		userService.userModify(memberDto);
+		return "index";
 	}
 }

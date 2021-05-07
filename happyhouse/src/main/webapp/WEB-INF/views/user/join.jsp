@@ -31,9 +31,9 @@ $(document).ready(function() {
 			alert("비밀번호 확인!!!");
 			return;
 		} else {
-			document.getElementById("memberform").action = "${root}/main.do?act=join";
-			document.getElementById("memberform").submit();
-			
+			/* document.getElementById("memberform").action = "${root}/main.do?act=join";
+			document.getElementById("memberform").submit(); */
+			$("#memberform").attr("action", "${root}/user/join").submit();
 			/* $("#memberform").attr("join", "${root}/main.do?act=join").submit();
 			${root}/main.do?act=mvmodify */
 		}
@@ -90,7 +90,7 @@ function moveJoin() {
 			<div class="form-group" align="left">
 				<label for="email">이메일</label><br>
 				<div id="email" class="custom-control-inline">
-				<input type="text" class="form-control" id="emailid" name="emailid" placeholder="" size="25"> @
+				<input type="text" class="form-control" id="email" name="email" placeholder="" size="25"> @
 				<select class="form-control" id="emaildomain" name="emaildomain">
 					<option value="naver.com">naver.com</option>
 					<option value="google.com">google.com</option>
