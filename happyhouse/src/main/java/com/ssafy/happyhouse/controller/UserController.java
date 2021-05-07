@@ -89,7 +89,6 @@ public class UserController {
 	@RequestMapping(value = "/modifypassword", method = RequestMethod.POST)
 	public String modifypassword(MemberDto memberDto, Model model, HttpSession session) {
 		MemberDto memberDto2 = (MemberDto) session.getAttribute("userinfo");
-		System.out.println("무야호");
 		memberDto.setUserid(memberDto2.getUserid());
 		System.out.println(memberDto2.getUserid());
 		System.out.println(memberDto.getUserpwd());
