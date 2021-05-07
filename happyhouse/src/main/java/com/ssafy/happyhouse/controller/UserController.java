@@ -31,6 +31,7 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session, HttpServletResponse response) {
 		try {
+			System.out.println("hihi222222");
 			MemberDto memberDto = userService.login(map);
 			if(memberDto != null) {
 				session.setAttribute("userinfo", memberDto);
@@ -42,7 +43,7 @@ public class UserController {
 					cookie.setMaxAge(0);
 				}
 				response.addCookie(cookie);
-				
+				return "redirect:/";
 			} else {
 				model.addAttribute("msg", "아이디 또는 비밀번호 확인 후 로그인해 주세요.");
 			}
