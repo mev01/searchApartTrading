@@ -25,7 +25,7 @@ $(document).ready(function() {
 			alert("아이디 입력!!!");
 			return;
 		} else {
-			<!-- document.getElementById("memberform").action = "${root}/main.do?act=searchPW"; -->
+			
 			
 			$("#memberform").attr("action", "${root}/user/searchPW").submit();
 			/* $("#memberform").attr("join", "${root}/main.do?act=join").submit();
