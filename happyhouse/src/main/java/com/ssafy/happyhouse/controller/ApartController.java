@@ -33,7 +33,7 @@ public class ApartController {
 			e.printStackTrace();
 		}
 		
-		return "user/login";
+		return "index";
 	}
 	
 	@GetMapping("/select/{city}/{gu}")
@@ -47,7 +47,7 @@ public class ApartController {
 			e.printStackTrace();
 		}
 		
-		return "user/login";
+		return "index";
 	}
 	
 	@GetMapping("/select/{city}/{gu}/{dong}")

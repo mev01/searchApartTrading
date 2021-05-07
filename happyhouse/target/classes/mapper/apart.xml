@@ -9,4 +9,16 @@
 		from baseaddress
 	</select>
 	
+	<select id="selectGu"  parameterType="String" resultType="String">
+		select distinct gugun 
+		from baseaddress 
+		where city = #{city}
+	</select>
+	
+	<select id="selectDong" parameterType="String" resultType="String">
+		select distinct dong 
+		from baseaddress 
+		where gugun = #{gu}
+	</select>
+	
 </mapper>

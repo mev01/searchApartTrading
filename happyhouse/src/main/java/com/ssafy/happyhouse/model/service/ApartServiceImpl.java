@@ -73,14 +73,12 @@ public class ApartServiceImpl implements ApartService {
 
 	@Override
 	public List<String> getGuList(String city) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.getMapper(ApartMapper.class).selectGu(city);
 	}
 
 	@Override
 	public List<String> getDongList(String gu) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.getMapper(ApartMapper.class).selectDong(gu);
 	}
 
 	@Override
