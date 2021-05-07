@@ -63,7 +63,7 @@ public class ApartController {
 			e.printStackTrace();
 		}
 		
-		return "user/login";
+		return "houseinfo/list";
 	}
 	
 	
