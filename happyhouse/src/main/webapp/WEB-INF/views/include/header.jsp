@@ -59,7 +59,7 @@
 					<c:if test="${userinfo == null}">
 						<div class="btn-group">
 							<a class="btn btn-sm btn-primary mr-2 navBtn" id="nav-signupBtn"
-								href="${root}/main.do?act=mvjoin"> <i class="fa fa-user pr-2"></i>Sign
+								href="${root}/user/join"> <i class="fa fa-user pr-2"></i>Sign
 								Up
 							</a>
 						</div>
