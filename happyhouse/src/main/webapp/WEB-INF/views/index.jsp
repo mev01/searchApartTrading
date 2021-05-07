@@ -103,9 +103,21 @@
 							</div> -->
 						</div>
 						<div>
-							<div class="option text-center mt-2 mb-2">
-								<a class="btn btn-lg btn-goto" href="javascript:void(0);" onclick="Search();return false;"> 실거래가 지금 보기 👉 </a>
-							</div>
+							<c:choose>
+								<c:when test="${city != null}">
+									<c:if test="${gu != null}">
+										<div class="option text-center mt-2 mb-2">
+											<a class="btn btn-lg btn-goto" href="javascript:void(0);" onclick="Search();return false;"> 실거래가 지금 보기 👉 </a>
+										</div>
+								</c:if>
+									
+								</c:when>
+								<c:otherwise>
+									<script>
+										alert("시도를 선택해주세요.");
+									</script>
+								</c:otherwise>
+							</c:choose>
 						</div> 
 					</div>
 				</div>

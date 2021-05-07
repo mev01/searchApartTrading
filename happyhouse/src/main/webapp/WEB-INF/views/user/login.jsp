@@ -34,8 +34,6 @@
 			}
 		});
 		
-		
-		
 	 	$('#mvRegisterBtn').click(function() {
 			$(location).attr("href", "${root}/user/join");
 		}); 

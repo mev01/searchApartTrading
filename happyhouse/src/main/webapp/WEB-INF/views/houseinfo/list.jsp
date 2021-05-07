@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <c:set var="houseInfo" value="${houseInfo}" />
 <c:set var="houseDealList" value="${houseDealList}" />
@@ -72,6 +74,9 @@
 	}
 </style>
 <script type="text/javascript">
+
+	
+
 	function movewrite() {
 		location.href = "${root}/main.do?act=mvlogin";
 	}
@@ -180,7 +185,7 @@
 				onsubmit=""; return false;">
 				 <input type="hidden" name="act" id="act" value="list"> 
 				
-				<table class="table table-borderless">
+				<%-- <table class="table table-borderless">
 					<tr>
 						<td align="right">
 						<select class="form-control" name="key" id="key" >
@@ -190,7 +195,7 @@
 						</select> 
 							<input type="text" class="form-control" placeholder="검색어 입력." name="word" id="word">
 							
-							<button type="submit" class="btn btn-primary" onclick="javascript:searchPlaces();">검색</button>
+							<button type="submit" class="btn btn-primary" id="searchBtn">검색</button>
 							 <input type="hidden" id="lat" name="lat" value="${lat}">
 							<input type="hidden" id="lng" name="lng"  value="${lng}">
 							<button type="button" class="btn btn-primary" onclick="javascript:searchall();">초기화</button></td>  
@@ -198,20 +203,27 @@
         					<div id="pagination"></div>
         					
 					</tr>
-				</table>
+				</table> --%>
 			</form>
 		
 		
 			<!-- 아파트 정보 -->
 			<div class="mb-4" id="apartinfo">거래 정보
-				<c:forEach var="house" items="${houseDealList}">
-					<div class = "apart">
-						<hr>
-						<div class = "apartname">아파트이름 : ${house.getAptNAme()}</div>
-						<div class = "cost">거래 금액: ${house.getDealAmount()}</div>
-						<div class = "date">날짜: ${house.getDealYear()}</div>
+				<c:if test="${fn:length(houseDealList) != 0}">
+					<c:forEach var="house" items="${houseDealList}">
+						<div class = "apart">
+							<hr>
+							<div class = "apartname">아파트이름 : ${house.getAptNAme()}</div>
+							<div class = "cost">거래 금액: ${house.getDealAmount()}</div>
+							<div class = "date">날짜: ${house.getDealYear()}</div>
+						</div>
+					</c:forEach>
+				</c:if>
+				<c:if test="${fn:length(houseDealList) == 0}">
+					<div>
+						거래내역이 없습니다.
 					</div>
-				</c:forEach>
+				</c:if>
 			</div>
 			
 			<!-- Image Header -->
