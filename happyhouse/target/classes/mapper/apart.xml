@@ -21,4 +21,18 @@
 		where gugun = #{gu}
 	</select>
 	
+	<select id="selectBaseAddress" parameterType="map" resultType="BaseAddress">
+		SELECT * 
+		FROM baseaddress 
+		WHERE gugun = #{gu} and dong = #{dong}
+	</select>
+	
+	<select id="selectHouseDeal" parameterType="map" resultType="HouseDeal">
+		SELECT hd.no, hd.dong, hd.AptName, hd.code, hd.dealAmount, hd.buildYear, hd.dealYear, hd.dealMonth, 
+				hd.dealDay, hd.area, hd.floor, hd.jibun, hd.type, hd.rentMoney, hi.lat, hi.lng, hi.img 
+		FROM housedeal hd 
+		INNER JOIN houseinfo hi ON hd.AptName = hi.AptName and hd.dong = hi.dong 
+		WHERE hd.code = #{dongcode} and hd.dong = #{dong}
+	</select>
+	
 </mapper>
