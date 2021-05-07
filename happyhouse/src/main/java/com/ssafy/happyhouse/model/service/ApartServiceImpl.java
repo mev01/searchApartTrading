@@ -2,6 +2,7 @@ package com.ssafy.happyhouse.model.service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -82,15 +83,13 @@ public class ApartServiceImpl implements ApartService {
 	}
 
 	@Override
-	public List<HouseDeal> searchArea(String gu, String dong) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<HouseDeal> searchArea(Map<String, Object> map) throws SQLException {
+		return sqlSession.getMapper(ApartMapper.class).selectHouseDeal(map);
 	}
 
 	@Override
-	public BaseAddress searchDong(String gu, String dong) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public BaseAddress searchDong(Map<String, Object> map) throws SQLException {
+		return sqlSession.getMapper(ApartMapper.class).selectBaseAddress(map);
 	}
 
 }

@@ -2,6 +2,7 @@ package com.ssafy.happyhouse.model.service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import com.ssafy.happyhouse.model.ApartDto;
 import com.ssafy.happyhouse.model.BaseAddress;
@@ -22,6 +23,6 @@ public interface ApartService {
 	List<String> getCityList() throws SQLException;
 	List<String> getGuList(String city) throws SQLException;
 	List<String> getDongList(String gu) throws SQLException;
-	List<HouseDeal> searchArea(String gu, String dong) throws SQLException;
-	BaseAddress searchDong(String gu, String dong) throws SQLException;
+	List<HouseDeal> searchArea(Map<String, Object> map) throws SQLException;
+	BaseAddress searchDong(Map<String, Object> map) throws SQLException;
 }
