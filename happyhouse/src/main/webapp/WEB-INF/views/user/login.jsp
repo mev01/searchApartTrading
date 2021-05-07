@@ -21,7 +21,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="./css/happyhouse.css" />
+<link rel="stylesheet" href="../css/happyhouse.css" />
 <link
 	href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR&display=swap"
 	rel="stylesheet">
@@ -45,7 +45,7 @@
 		
 	$(document).ready(function() {
 		$("#loginBtn").click(function() {
-			
+			alert("hi!!!");
 			if($("#userid").val() == "") {
 				alert("아이디 입력!!!");
 				return;
@@ -61,6 +61,10 @@
 		
 	 	$('#mvRegisterBtn').click(function() {
 			$(location).attr("href", "${root}/user/join");
+		}); 
+	 	
+	 	$('#findPwBtn').click(function() {
+	 		$(location).attr("href", "${root}/user/searchPW");
 		}); 
 	});
 </script>
@@ -105,7 +109,7 @@
 								>로그인</button>
 							<button type="button" class="btn btn-primary" id="mvRegisterBtn">회원가입</button>
 							<button type="button" class="btn btn-primary"
-								onclick="javascript:findPwd();">비밀번호찾기</button>
+								id="findPwBtn">비밀번호찾기</button>
 						</div>
 						<div>
 							<c:if test="${userinfo == null}">

@@ -86,6 +86,22 @@ public class UserController {
 	}
 	
 	
+	@RequestMapping(value = "/searchPW", method = RequestMethod.GET)
+	public String searchPW() {
+		System.out.println("찾았당");
+		return "user/searchPW";
+	}
+	
+	@RequestMapping(value = "/searchPW", method = RequestMethod.POST)
+	public String searchPW(MemberDto memberDto, Model model, HttpSession session) {
+		System.out.println("와와");
+		MemberDto memberDto2=userService.userInfo(memberDto.getUserid());
+		session.setAttribute("pw", memberDto2.getUserpwd());
+		System.out.println(memberDto2.getUsername());
+		System.out.println(memberDto2.getUserpwd());
+		return "user/searchPWres";
+	}
+	
 	@RequestMapping(value = "/modifypassword", method = RequestMethod.POST)
 	public String modifypassword(MemberDto memberDto, Model model, HttpSession session) {
 		MemberDto memberDto2 = (MemberDto) session.getAttribute("userinfo");

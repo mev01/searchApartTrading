@@ -25,9 +25,9 @@ $(document).ready(function() {
 			alert("아이디 입력!!!");
 			return;
 		} else {
-			document.getElementById("memberform").action = "${root}/main.do?act=searchPW";
-			document.getElementById("memberform").submit();
+			<!-- document.getElementById("memberform").action = "${root}/main.do?act=searchPW"; -->
 			
+			$("#memberform").attr("action", "${root}/user/searchPW").submit();
 			/* $("#memberform").attr("join", "${root}/main.do?act=join").submit();
 			${root}/main.do?act=mvmodify */
 		}
@@ -36,6 +36,10 @@ $(document).ready(function() {
 	$('#zipcode').focusin(function() {
 		$('#zipModal').modal();
 	});
+	
+	$('#back').click(function() {
+ 		$(location).attr("href", "${root}/user/login");
+	}); 
 	
 });
 
@@ -77,7 +81,7 @@ function moveJoin() {
 			<div class="form-group" align="center">
 				<button type="button" class="btn btn-info" id="searchBtn">찾기</button>
 				<button type="reset" class="btn btn-light">초기화</button>
-				<button type="button" class="btn btn-secondary" onclick="javascript:moveJoin();">뒤로가기</button>
+				<button type="button" class="btn btn-secondary" id="back">뒤로가기</button>
 			</div>
 		</form>
 	</div>
