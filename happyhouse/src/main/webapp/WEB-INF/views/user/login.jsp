@@ -45,7 +45,7 @@
 		
 	$(document).ready(function() {
 		$("#loginBtn").click(function() {
-			alert("hi!!!");
+			
 			if($("#userid").val() == "") {
 				alert("아이디 입력!!!");
 				return;
