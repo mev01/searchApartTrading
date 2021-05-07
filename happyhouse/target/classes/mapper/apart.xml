@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- 이거 자동완성 이니 주의 -->
+
+<mapper namespace="com.ssafy.happyhouse.model.mapper.ApartMapper">
+
+	<select id="selectCity" resultType="String">
+		select distinct city 
+		from baseaddress
+	</select>
+	
+	<select id="selectGu"  parameterType="String" resultType="String">
+		select distinct gugun 
+		from baseaddress 
+		where city = #{city}
+	</select>
+	
+	<select id="selectDong" parameterType="String" resultType="String">
+		select distinct dong 
+		from baseaddress 
+		where gugun = #{gu}
+	</select>
+	
+</mapper>
