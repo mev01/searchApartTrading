@@ -31,22 +31,8 @@
 <script type="text/javascript">
 	var root = '<c:out value="${pageContext.request.contextPath}"/>';
 	$(document).ready(function() {
-		 $('#select-city').change(function() {
-			var city = $('#select-city').val();
-			location.href = "${root}/apart/select/" + city;
-		});
-	
-		$('#select-gu').change(function() {
-			var city = $('#select-city').val();
-			var gu = $('#select-gu').val();
-			location.href = "${root}/apart/select/" + city+ "/" + gu;
-		}); 
-		
 		Search = function () {
-			var city = $('#select-city').val();
-			var gu = $('#select-gu').val();
-			var dong = $('#select-dong').val();
-	    	location.href = "${root}/apart/select/" + city+ "/" + gu + "/" + dong;
+	    	location.href = "${root}/apart/list";
 		}
 	})
 </script>
@@ -74,50 +60,11 @@
 						<h5 class="mb-5 main-sub">이 아파트는 얼마에 팔렸지? 얼마에 사야 해?</h5>
 					</div>
 					<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-						<div class="col-lg-12" id="address">
-							<select class="custom-select-sm" id="select-city">
-								<c:choose>
-									<c:when test="${city eq null }"><option selected>시도</option></c:when>
-									<c:otherwise><option selected>${city }</option></c:otherwise>
-								</c:choose>
-								<c:forEach items="${cityList }" var="city">
-									<option>${city }</option>
-								</c:forEach>
-							</select> <select class="custom-select-sm" id="select-gu">
-								<c:choose>
-									<c:when test="${gu eq null }"><option selected>구군</option></c:when>
-									<c:otherwise><option selected>${gu }</option></c:otherwise>
-								</c:choose>
-								<c:forEach items="${guList }" var="gu">
-									<option>${gu }</option>
-								</c:forEach>
-							</select> <select class="custom-select-sm" id="select-dong">
-								<option selected>동</option>
-								<c:forEach items="${dongList }" var="dong">
-									<option>${dong }</option>
-								</c:forEach>
-							</select>
-							<!-- <div style="margin-top: 10px">
-								<input type="button" class="btn-primary btn-sm" id="goService"
-									value="검색하기">
-							</div> -->
-						</div>
-						<div>
-							<c:choose>
-								<c:when test="${city != null}">
-									<c:if test="${gu != null}">
-										<div class="option text-center mt-2 mb-2">
-											<a class="btn btn-lg btn-goto" href="javascript:void(0);" onclick="Search();return false;"> 실거래가 지금 보기 👉 </a>
-										</div>
-								</c:if>
-									
-								</c:when>
-								<c:otherwise>
-									<script>
-										alert("시도를 선택해주세요.");
-									</script>
-								</c:otherwise>
-							</c:choose>
+						<div class="">
+							<div class="option text-center mt-2 mb-2">
+								<a class="btn btn-lg btn-goto"
+									href="javascript:void(0);" onclick="Search();return false;"> 실거래가 지금 보기 👉 </a>
+							</div>
 						</div> 
 					</div>
 				</div>
