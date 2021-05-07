@@ -97,10 +97,10 @@
 									<option>${dong }</option>
 								</c:forEach>
 							</select>
-							<div style="margin-top: 10px">
+							<!-- <div style="margin-top: 10px">
 								<input type="button" class="btn-primary btn-sm" id="goService"
 									value="검색하기">
-							</div>
+							</div> -->
 						</div>
 						<div class="">
 							<div class="option text-center mt-2 mb-2">
@@ -150,7 +150,7 @@
 					</tbody>
 				</table>
 			</div> --%>
-			<div id="map" class="col-8 defaultmap"></div>
+			<%--<div id="map" class="col-8 defaultmap" align="center"></div>--%>
 		</div> 
 
 		<!-- Testimonials -->
